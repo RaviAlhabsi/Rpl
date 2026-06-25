@@ -1,0 +1,30 @@
+﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head><meta charset="utf-8"><title>Laporan ERD</title>
+<style>
+body { font-family: "Times New Roman", Times, serif; font-size: 12pt; margin: 40px; }
+h1, h2 { text-align: center; } h3 { font-size: 14pt; }
+.box { border: 2px dashed #999; padding: 150px 40px; text-align: center; color: #555; font-weight: bold; margin: 20px 0; background: #f9f9f9; }
+</style></head>
+<body>
+<h1>LAPORAN ANALISIS ERD 4 TAHAP<br>SISTEM MANAJEMEN HOTEL</h1>
+<p>Laporan ini berisi 4 tahapan pembuatan Entity Relationship Diagram (ERD) untuk Sistem Manajemen Hotel Anomali Raja Sawit.</p>
+
+<h3>TAHAP 1: PENENTUAN ENTITAS</h3>
+<p>Entitas yang diidentifikasi meliputi: Tamu, Kamar, Reservasi, Resepsionis, Administrator, dan Housekeeping.</p>
+<div class="box">[ TEMPATKAN GAMBAR TAHAP 1 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+
+<div style="page-break-before: always;"></div>
+<h3>TAHAP 2: PENENTUAN ATRIBUT</h3>
+<p>Setiap entitas diberikan atribut seperti Primary Key dan atribut deskriptif lainnya.</p>
+<div class="box">[ TEMPATKAN GAMBAR TAHAP 2 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+
+<div style="page-break-before: always;"></div>
+<h3>TAHAP 3: PENENTUAN KARDINALITAS RELASI</h3>
+<p>Kardinalitas menunjukkan hubungan 1:M atau M:M antar entitas tanpa atribut agar fokus pada hubungan.</p>
+<div class="box">[ TEMPATKAN GAMBAR TAHAP 3 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+
+<div style="page-break-before: always;"></div>
+<h3>TAHAP 4: ERD LENGKAP</h3>
+<p>Keseluruhan entitas, atribut, dan relasi digabungkan menjadi satu diagram ERD yang utuh.</p>
+<div class="box">[ TEMPATKAN GAMBAR TAHAP 4 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+</body></html>

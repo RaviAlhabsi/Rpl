@@ -1,0 +1,32 @@
+﻿<mxfile host="Electron" modified="2024-05-23T00:00:00.000Z" agent="Mozilla/5.0" version="24.4.4" type="device">
+  <diagram id="diagram_id" name="Page-1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" /><mxCell id="Tamu" value="Tamu" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="100" y="200" width="120" height="60" as="geometry"/></mxCell>
+<mxCell id="Reservasi" value="Reservasi" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="350" y="200" width="120" height="60" as="geometry"/></mxCell>
+<mxCell id="Kamar" value="Kamar" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="600" y="200" width="120" height="60" as="geometry"/></mxCell>
+<mxCell id="Resepsionis" value="Resepsionis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="350" y="50" width="120" height="60" as="geometry"/></mxCell>
+<mxCell id="Admin" value="Administrator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="600" y="50" width="120" height="60" as="geometry"/></mxCell>
+<mxCell id="House" value="Housekeeping" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="850" y="200" width="120" height="60" as="geometry"/></mxCell><mxCell id="a1" value="Id_Tamu" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="50" y="120" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="a2" value="Nama" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="150" y="120" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="ea1" style="endArrow=none;html=1;" edge="1" parent="1" source="a1" target="Tamu"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="ea2" style="endArrow=none;html=1;" edge="1" parent="1" source="a2" target="Tamu"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+<mxCell id="a3" value="Id_Res" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="300" y="290" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="a4" value="Tgl_In" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="400" y="290" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="ea3" style="endArrow=none;html=1;" edge="1" parent="1" source="a3" target="Reservasi"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="ea4" style="endArrow=none;html=1;" edge="1" parent="1" source="a4" target="Reservasi"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+<mxCell id="a5" value="No_Kamar" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="550" y="290" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="a6" value="Tipe" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="650" y="290" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="ea5" style="endArrow=none;html=1;" edge="1" parent="1" source="a5" target="Kamar"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="ea6" style="endArrow=none;html=1;" edge="1" parent="1" source="a6" target="Kamar"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+<mxCell id="a7" value="Id_Hskp" style="ellipse;whiteSpace=wrap;html=1;fontStyle=4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="800" y="290" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="a8" value="Nama" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="900" y="290" width="80" height="40" as="geometry"/></mxCell>
+<mxCell id="ea7" style="endArrow=none;html=1;" edge="1" parent="1" source="a7" target="House"><mxGeometry relative="1" as="geometry"/></mxCell>
+<mxCell id="ea8" style="endArrow=none;html=1;" edge="1" parent="1" source="a8" target="House"><mxGeometry relative="1" as="geometry"/></mxCell>      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
