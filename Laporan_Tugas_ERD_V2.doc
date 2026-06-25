@@ -1,30 +1,183 @@
-﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
-<head><meta charset="utf-8"><title>Laporan ERD</title>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Makalah ERD - Hotel Anomali Raja Sawit</title>
 <style>
-body { font-family: "Times New Roman", Times, serif; font-size: 12pt; margin: 40px; }
-h1, h2 { text-align: center; } h3 { font-size: 14pt; }
-.box { border: 2px dashed #999; padding: 150px 40px; text-align: center; color: #555; font-weight: bold; margin: 20px 0; background: #f9f9f9; }
-</style></head>
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.5; margin: 40px; }
+  h1, h2, h3 { text-align: center; font-weight: bold; }
+  h1 { font-size: 16pt; margin-top: 30px;} h2 { font-size: 14pt; margin-top: 30px;} h3 { font-size: 12pt; text-align: left; margin-top: 25px; }
+  .cover { text-align: center; margin-top: 150px; margin-bottom: 250px; }
+  .cover p { font-size: 14pt; margin: 5px; }
+  .cover h1 { font-size: 18pt; margin-bottom: 50px; }
+  .content { text-align: justify; }
+  .screenshot-box { border: 2px dashed #999; padding: 150px 40px; text-align: center; color: #555; margin: 20px 0; background: #f9f9f9; font-weight: bold;}
+  pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto; font-family: Consolas, monospace; font-size: 10pt; }
+  .page-break { page-break-before: always; }
+  .center { text-align: center; }
+</style>
+</head>
 <body>
-<h1>LAPORAN ANALISIS ERD 4 TAHAP<br>SISTEM MANAJEMEN HOTEL</h1>
-<p>Laporan ini berisi 4 tahapan pembuatan Entity Relationship Diagram (ERD) untuk Sistem Manajemen Hotel Anomali Raja Sawit.</p>
+  <div class="cover">
+    <h1>MAKALAH TUGAS KELOMPOK<br>PERANCANGAN DATABASE (ERD)</h1>
+    <p><strong>Mata Kuliah:</strong> Rekayasa Perangkat Lunak II</p>
+    <p><strong>Nama Sistem:</strong> Sistem Manajemen Hotel (Anomali Raja Sawit)</p>
+    <br><br><br><br><br><br>
+    <p><strong>Disusun Oleh Kelompok:</strong></p>
+    <p>Muh Kholaf Asmaul Ikhsan (8020240158)</p>
+    <p>Ravi Al Habsi Ramadan (8020240178)</p>
+    <p>Tristan Napalem Singarimbun (8020240261)</p>
+    <p>Ridho Aidilla (8020240020)</p>
+    <p>Fadel Muhammad Rasyid (8020240290)</p>
+    <br><br><br><br><br><br>
+    <p><strong>PROGRAM STUDI TEKNIK INFORMATIKA</strong></p>
+    <p><strong>FAKULTAS ILMU KOMPUTER</strong></p>
+    <p><strong>UNIVERSITAS DINAMIKA BANGSA JAMBI</strong></p>
+    <p><strong>2026</strong></p>
+  </div>
+  
+  <div class="page-break"></div>
+  
+  <div class="content">
+    <h2>KATA PENGANTAR</h2>
+    <p>Puji syukur senantiasa kami panjatkan kehadirat Tuhan Yang Maha Esa, karena atas rahmat dan karunia-Nya, kami dapat menyelesaikan makalah yang berjudul "Perancangan Entity Relationship Diagram (ERD) pada Sistem Manajemen Hotel Anomali Raja Sawit" ini tepat pada waktunya.</p>
+    <p>Makalah ini disusun untuk memenuhi tugas mata kuliah Rekayasa Perangkat Lunak II di Universitas Dinamika Bangsa Jambi. Kami juga mengucapkan terima kasih kepada dosen pengampu yang telah memberikan bimbingan dan arahan dalam penyusunan laporan ini.</p>
+    <p>Dalam penyusunan makalah ini, kami menyadari bahwa masih banyak kekurangan baik dari segi penyusunan bahasa maupun materi pembahasan. Oleh karena itu, kami sangat mengharapkan kritik dan saran yang membangun dari pembaca untuk penyempurnaan makalah ini di masa mendatang.</p>
+    <p>Semoga makalah ini dapat memberikan manfaat serta menambah wawasan bagi para pembaca, khususnya mahasiswa Teknik Informatika yang sedang mendalami materi perancangan basis data dan rekayasa perangkat lunak.</p>
+    <br><br>
+    <p style="text-align: right;">Jambi, Juni 2026<br><br><br><br><strong>Penyusun</strong></p>
+  </div>
 
-<h3>TAHAP 1: PENENTUAN ENTITAS</h3>
-<p>Entitas yang diidentifikasi meliputi: Tamu, Kamar, Reservasi, Resepsionis, Administrator, dan Housekeeping.</p>
-<div class="box">[ TEMPATKAN GAMBAR TAHAP 1 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  <div class="page-break"></div>
 
-<div style="page-break-before: always;"></div>
-<h3>TAHAP 2: PENENTUAN ATRIBUT</h3>
-<p>Setiap entitas diberikan atribut seperti Primary Key dan atribut deskriptif lainnya.</p>
-<div class="box">[ TEMPATKAN GAMBAR TAHAP 2 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  <div class="content">
+    <h2>DAFTAR ISI</h2>
+    <p>KATA PENGANTAR ..................................................................................................... i</p>
+    <p>DAFTAR ISI ................................................................................................................. ii</p>
+    <p>BAB I PENDAHULUAN ................................................................................................ 1</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;1.1 Latar Belakang ............................................................................................ 1</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;1.2 Tujuan Penulisan ........................................................................................ 2</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;1.3 Profil Sistem ............................................................................................... 2</p>
+    <p>BAB II LANDASAN TEORI ........................................................................................... 3</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;2.1 Pengertian ERD .......................................................................................... 3</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;2.2 Elemen-elemen ERD .................................................................................. 4</p>
+    <p>BAB III PERANCANGAN ERD 4 TAHAPAN ................................................................. 5</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;3.1 Tahap 1: Penentuan Entitas ......................................................................... 5</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;3.2 Tahap 2: Penentuan Atribut ......................................................................... 6</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;3.3 Tahap 3: Penentuan Kardinalitas Relasi ....................................................... 7</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;3.4 Tahap 4: ERD Lengkap .............................................................................. 8</p>
+    <p>BAB IV PENUTUP ......................................................................................................... 9</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;4.1 Kesimpulan ................................................................................................. 9</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;4.2 Saran ........................................................................................................... 9</p>
+    <p>DAFTAR PUSTAKA ...................................................................................................... 10</p>
+  </div>
 
-<div style="page-break-before: always;"></div>
-<h3>TAHAP 3: PENENTUAN KARDINALITAS RELASI</h3>
-<p>Kardinalitas menunjukkan hubungan 1:M atau M:M antar entitas tanpa atribut agar fokus pada hubungan.</p>
-<div class="box">[ TEMPATKAN GAMBAR TAHAP 3 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  <div class="page-break"></div>
 
-<div style="page-break-before: always;"></div>
-<h3>TAHAP 4: ERD LENGKAP</h3>
-<p>Keseluruhan entitas, atribut, dan relasi digabungkan menjadi satu diagram ERD yang utuh.</p>
-<div class="box">[ TEMPATKAN GAMBAR TAHAP 4 DARI FOLDER GAMBAR GROUP DI SINI ]</div>
-</body></html>
+  <div class="content">
+    <h2>BAB I<br>PENDAHULUAN</h2>
+    <h3>1.1 Latar Belakang</h3>
+    <p>Di era digital saat ini, pengelolaan informasi yang efektif sangat krusial bagi keberhasilan operasional suatu instansi atau perusahaan, tidak terkecuali pada industri perhotelan. Sistem pencatatan yang masih bersifat semi-manual atau konvensional memiliki risiko tinggi terhadap hilangnya data, redundansi data, serta anomali pembaruan yang dapat merugikan pihak hotel maupun pelanggan.</p>
+    <p>Salah satu fondasi terpenting dalam membangun Sistem Manajemen Hotel yang andal adalah melalui perancangan basis data relasional yang baik. Untuk memetakan struktur logika tabel dan memastikan bahwa setiap entitas berinteraksi tanpa menimbulkan konflik data, dibutuhkan Entity Relationship Diagram (ERD). Pada tugas kelompok ini, kami mengangkat studi kasus rancangan ERD untuk Hotel Anomali Raja Sawit.</p>
+
+    <h3>1.2 Tujuan Penulisan</h3>
+    <p>Tujuan dari penulisan makalah ini adalah:</p>
+    <ol>
+        <li>Mengidentifikasi entitas-entitas utama yang terlibat dalam proses bisnis operasional hotel.</li>
+        <li>Menentukan atribut dan Primary Key yang tepat untuk masing-masing entitas guna menjaga integritas data.</li>
+        <li>Mendefinisikan kardinalitas relasi antar entitas sesuai dengan logika bisnis hotel.</li>
+        <li>Membuat rancangan grafis ERD secara terstruktur melalui 4 tahapan pembuatan.</li>
+    </ol>
+
+    <h3>1.3 Profil Sistem</h3>
+    <p><strong>Nama Sistem:</strong> Sistem Manajemen Hotel Anomali Raja Sawit.</p>
+    <p>Sistem ini dirancang untuk memfasilitasi kebutuhan administrasi mulai dari pendaftaran data tamu, pengelolaan informasi kamar, pencatatan transaksi reservasi, hingga pengaturan jadwal staf seperti Resepsionis dan Housekeeping. Dengan adanya rancangan sistem basis data ini, diharapkan hotel mampu meminimalisir kesalahan manusia (human error) dan memberikan pelayanan yang lebih profesional.</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB II<br>LANDASAN TEORI</h2>
+    <h3>2.1 Pengertian Entity Relationship Diagram (ERD)</h3>
+    <p>Entity Relationship Diagram (ERD) merupakan sebuah model jaringan data yang digunakan untuk memvisualisasikan bagaimana data saling terkait di dalam sebuah sistem basis data. ERD mendeskripsikan struktur logis dan hubungan (relationships) dari suatu basis data yang didasarkan pada persepsi dunia nyata.</p>
+    <p>Melalui ERD, para pengembang dan desainer sistem mampu merancang skema relasional dengan pendekatan berorientasi pada komponen data yang paling mendasar (entitas) sebelum mengimplementasikannya secara teknis ke dalam sistem manajemen basis data relasional (RDBMS) seperti MySQL, PostgreSQL, atau Oracle.</p>
+
+    <h3>2.2 Elemen-elemen Dasar ERD</h3>
+    <p>Terdapat tiga komponen utama dalam penyusunan ERD:</p>
+    <ul>
+        <li><strong>Entitas (Entity):</strong> Disimbolkan dengan bentuk persegi panjang. Entitas merupakan objek dasar di dunia nyata yang keberadaannya saling independen dan dapat dibedakan dengan jelas, seperti Orang, Benda, Tempat, atau Kejadian.</li>
+        <li><strong>Atribut (Attribute):</strong> Disimbolkan dengan bentuk oval atau elips. Atribut memberikan rincian atau karakteristik dari suatu entitas. Atribut kunci yang menjadi pengenal unik suatu entitas disebut dengan <i>Primary Key</i> (biasanya diberi garis bawah).</li>
+        <li><strong>Relasi (Relationship):</strong> Disimbolkan dengan bentuk belah ketupat. Relasi menunjukkan hubungan alami yang terjadi antara satu atau lebih entitas. Hubungan ini biasanya ditandai dengan kata kerja aktif atau pasif, seperti "melakukan", "mengelola", atau "terdiri dari".</li>
+        <li><strong>Kardinalitas (Cardinality):</strong> Menjelaskan jumlah keterhubungan maksimum yang bisa terjadi antar entitas, misalnya Satu ke Banyak (1:M) atau Banyak ke Banyak (M:M).</li>
+    </ul>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB III<br>PERANCANGAN ERD 4 TAHAPAN</h2>
+    <p>Dalam memodelkan database Sistem Manajemen Hotel Anomali Raja Sawit, kami membaginya ke dalam 4 tahapan sistematis untuk memudahkan proses pemahaman perancangan sistem.</p>
+    
+    <h3>3.1 Tahap 1: Penentuan Entitas</h3>
+    <p>Pada tahap awal ini, kami mengidentifikasi objek-objek fundamental (aktor maupun benda) yang terlibat secara krusial dalam sistem. Entitas yang didapat meliputi: Tamu, Kamar, Reservasi, Resepsionis, Administrator, dan Housekeeping.</p>
+    <div class="screenshot-box">[ TEMPATKAN GAMBAR TAHAP 1 (ENTITAS) DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h3>3.2 Tahap 2: Penentuan Atribut</h3>
+    <p>Tahap kedua adalah mendeskripsikan setiap entitas dengan atribut-atributnya. Pada setiap entitas, kami telah menetapkan satu <i>Primary Key</i> (Kunci Primer) yang digarisbawahi agar tidak terjadi duplikasi rekaman data di masa mendatang.</p>
+    <div class="screenshot-box">[ TEMPATKAN GAMBAR TAHAP 2 (ATRIBUT) DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h3>3.3 Tahap 3: Penentuan Kardinalitas Relasi</h3>
+    <p>Tahap ketiga berfokus pada logika hubungan antar entitas dan kardinalitasnya (tanpa menampilkan atribut agar lebih fokus).</p>
+    <ul>
+        <li>Tamu melakukan Reservasi (1:M).</li>
+        <li>Resepsionis menangani Reservasi (1:M).</li>
+        <li>Reservasi memesan Kamar (M:1).</li>
+        <li>Administrator mengelola Kamar (1:M).</li>
+        <li>Housekeeping membersihkan Kamar (M:M).</li>
+    </ul>
+    <div class="screenshot-box">[ TEMPATKAN GAMBAR TAHAP 3 (RELASI) DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h3>3.4 Tahap 4: ERD Lengkap</h3>
+    <p>Tahap terakhir adalah penggabungan (sintesis) dari Tahap 2 dan Tahap 3, yang mana menghasilkan Entity Relationship Diagram yang komprehensif, siap untuk ditranslasikan menjadi struktur fisik tabel database.</p>
+    <div class="screenshot-box">[ TEMPATKAN GAMBAR TAHAP 4 (ERD LENGKAP) DARI FOLDER GAMBAR GROUP DI SINI ]</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB IV<br>PENUTUP</h2>
+    <h3>4.1 Kesimpulan</h3>
+    <p>Berdasarkan perancangan yang telah dilakukan, dapat disimpulkan bahwa:</p>
+    <ol>
+        <li>Pembuatan ERD untuk Sistem Manajemen Hotel Anomali Raja Sawit memerlukan identifikasi 6 entitas utama yang saling berkaitan erat.</li>
+        <li>Pendekatan 4 tahapan perancangan (Entitas &rarr; Atribut &rarr; Relasi &rarr; ERD Lengkap) sangat membantu dalam memastikan tidak ada elemen logika bisnis yang tertinggal.</li>
+        <li>Setiap tabel telah dirancang dengan primary key dan kardinalitas relasi yang jelas (baik 1:M maupun M:M), sehingga apabila sistem diimplementasikan, basis data akan berjalan efisien tanpa redundansi atau anomali data.</li>
+    </ol>
+
+    <h3>4.2 Saran</h3>
+    <p>Adapun saran yang dapat kami sampaikan untuk pengembangan ke depan adalah perlunya menambahkan entitas tambahan seperti Entitas "Layanan_Tambahan" (makanan, spa) atau Entitas "Metode_Pembayaran" agar sistem manajemen hotel ini dapat memfasilitasi transaksi yang lebih modern dan tersentralisasi secara finansial.</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>DAFTAR PUSTAKA</h2>
+    <p>A.S., Rosa dan M. Shalahuddin. 2018. <i>Rekayasa Perangkat Lunak Terstruktur dan Berorientasi Objek.</i> Bandung: Informatika.</p>
+    <p>Fathansyah. 2015. <i>Basis Data Revisi Kedua.</i> Bandung: Informatika.</p>
+    <p>Kadir, Abdul. 2014. <i>Pengenalan Sistem Informasi Edisi Revisi.</i> Yogyakarta: Andi Offset.</p>
+    <p>Sintong, Daniel. 2026. <i>Materi Kuliah Rekayasa Perangkat Lunak 2: Entity Relationship Diagram (ERD).</i> Jambi: Universitas Dinamika Bangsa.</p>
+  </div>
+
+</body>
+</html>
