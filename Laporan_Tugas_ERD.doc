@@ -1,0 +1,56 @@
+﻿<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Laporan Analisis ERD</title>
+<style>
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.5; margin: 40px; }
+  h1 { text-align: center; font-size: 16pt; font-weight: bold; }
+  h2 { font-size: 14pt; font-weight: bold; margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+  th, td { border: 1px solid black; padding: 8px; text-align: left; }
+  th { background-color: #f2f2f2; }
+</style>
+</head>
+<body>
+  <h1>TUGAS KELOMPOK TEKNIK ENTITY RELATIONSHIP</h1>
+  <p style="text-align: center;"><strong>Sistem Manajemen Hotel - Anomali Raja Sawit</strong></p>
+  
+  <h2>1. Analisis dalam Pembuatan Entity Relationship Diagram</h2>
+  <p>Tahapan pembuatan ERD pada sistem manajemen hotel dilakukan dengan pendekatan terstruktur sebagai berikut:</p>
+  
+  <h3>Tahap 1: Penentuan Entitas (Entities)</h3>
+  <p>Berdasarkan dokumen spesifikasi teknis dan analisis kebutuhan, entitas-entitas yang terlibat dalam sistem adalah:</p>
+  <ol>
+    <li><strong>Tamu</strong>: Pelanggan yang memesan dan menginap di kamar.</li>
+    <li><strong>Kamar</strong>: Entitas yang disewakan kepada tamu.</li>
+    <li><strong>Reservasi</strong>: Transaksi pemesanan kamar oleh tamu.</li>
+    <li><strong>Resepsionis</strong>: Petugas front office yang menangani proses check-in/out.</li>
+    <li><strong>Administrator</strong>: Pengelola master data pada sistem hotel.</li>
+    <li><strong>Housekeeping</strong>: Petugas kebersihan kamar.</li>
+  </ol>
+
+  <h3>Tahap 2: Penentuan Atribut (Attributes)</h3>
+  <ul>
+    <li><strong>Tamu</strong>: <u>Id_Tamu</u> (PK), Nama_Tamu, Alamat, No_KTP, No_Telfon</li>
+    <li><strong>Kamar</strong>: <u>No_kamar</u> (PK), Tipe_kamar, Harga_per_malam, Fasilitas, Status_kamar</li>
+    <li><strong>Reservasi</strong>: <u>Id_Reservasi</u> (PK), Id_Tamu (FK), No_kamar (FK), Tgl_Check_in, Tgl_Check_out, Total_Bayar, Status_Bayar</li>
+    <li><strong>Resepsionis</strong>: <u>Id_Resepsionis</u> (PK), Nama_Resepsionis, Username, Password, Jadwal_Shift, No_Telfon</li>
+    <li><strong>Administrator</strong>: <u>Id_admin</u> (PK), Nama_admin, Username, Password, Email</li>
+    <li><strong>Housekeeping</strong>: <u>Id_Housekeeping</u> (PK), Nama_Petugas, Jadwal_Shift, Area_tugas, No_Telfon</li>
+  </ul>
+
+  <h3>Tahap 3: Penentuan Kardinalitas Relasi (Cardinality)</h3>
+  <ul>
+    <li><strong>Tamu - Reservasi (1 to N):</strong> Satu tamu dapat melakukan banyak transaksi reservasi.</li>
+    <li><strong>Kamar - Reservasi (1 to N):</strong> Satu kamar dapat dipesan berkali-kali dalam reservasi yang berbeda waktu.</li>
+    <li><strong>Resepsionis - Reservasi (1 to N):</strong> Satu resepsionis dapat memproses banyak reservasi.</li>
+    <li><strong>Administrator - Kamar (1 to N):</strong> Satu administrator mengelola banyak data kamar.</li>
+    <li><strong>Housekeeping - Kamar (M to N):</strong> Banyak petugas housekeeping membersihkan banyak kamar.</li>
+  </ul>
+
+  <h2>2. Rancangan Entity Relationship Diagram (ERD)</h2>
+  <p>Hasil dari rancangan ERD telah dilampirkan secara terpisah pada file Draw.io (<b>ERD_Anomali_Raja_Sawit.drawio</b>) agar dapat dicetak, diedit, dan dipresentasikan dengan resolusi dan tata letak yang profesional.</p>
+</body>
+</html>

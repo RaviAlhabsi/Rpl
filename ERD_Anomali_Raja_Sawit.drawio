@@ -1,0 +1,55 @@
+﻿<mxfile host="Electron" modified="2024-05-23T00:00:00.000Z" agent="Mozilla/5.0" version="24.4.4" type="device">
+  <diagram id="erd_diagram" name="ERD Hotel">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <mxCell id="tamu" value="&lt;b&gt;TAMU&lt;/b&gt;&lt;hr&gt;+ Id_Tamu (PK)&lt;br&gt;+ Nama_Tamu&lt;br&gt;+ Alamat&lt;br&gt;+ No_KTP&lt;br&gt;+ No_Telfon" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="180" height="150" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reservasi" value="&lt;b&gt;RESERVASI&lt;/b&gt;&lt;hr&gt;+ Id_Reservasi (PK)&lt;br&gt;+ Id_Tamu (FK)&lt;br&gt;+ No_kamar (FK)&lt;br&gt;+ Tgl_Check_in&lt;br&gt;+ Tgl_Check_out&lt;br&gt;+ Total_Bayar&lt;br&gt;+ Status_Bayar" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="180" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="kamar" value="&lt;b&gt;KAMAR&lt;/b&gt;&lt;hr&gt;+ No_kamar (PK)&lt;br&gt;+ Tipe_kamar&lt;br&gt;+ Harga_per_malam&lt;br&gt;+ Fasilitas&lt;br&gt;+ Status_kamar" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="650" y="50" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="resepsionis" value="&lt;b&gt;RESEPSIONIS&lt;/b&gt;&lt;hr&gt;+ Id_Resepsionis (PK)&lt;br&gt;+ Nama_Resepsionis&lt;br&gt;+ Username&lt;br&gt;+ Password&lt;br&gt;+ Jadwal_Shift&lt;br&gt;+ No_Telfon" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="350" y="320" width="180" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="administrator" value="&lt;b&gt;ADMINISTRATOR&lt;/b&gt;&lt;hr&gt;+ Id_admin (PK)&lt;br&gt;+ Nama_admin&lt;br&gt;+ Username&lt;br&gt;+ Password&lt;br&gt;+ Email" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="650" y="320" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="housekeeping" value="&lt;b&gt;HOUSEKEEPING&lt;/b&gt;&lt;hr&gt;+ Id_Housekeeping (PK)&lt;br&gt;+ Nama_Petugas&lt;br&gt;+ Jadwal_Shift&lt;br&gt;+ Area_tugas&lt;br&gt;+ No_Telfon" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="950" y="50" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel1" value="melakukan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;endArrow=ERmany;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="tamu" target="reservasi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="rel2" value="dipesan dalam" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;endArrow=ERmany;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="kamar" target="reservasi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel3" value="memproses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;endArrow=ERmany;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="resepsionis" target="reservasi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel4" value="mengelola" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;endArrow=ERmany;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="administrator" target="kamar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel5" value="membersihkan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmany;endArrow=ERmany;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="housekeeping" target="kamar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

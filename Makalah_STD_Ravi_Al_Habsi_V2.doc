@@ -1,0 +1,211 @@
+﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<title>Makalah STD - Ravi Al Habsi Ramadan</title>
+<style>
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.5; margin: 40px; }
+  h1, h2, h3 { text-align: center; font-weight: bold; }
+  h1 { font-size: 16pt; margin-top: 30px;} h2 { font-size: 14pt; margin-top: 30px;} h3 { font-size: 12pt; text-align: left; margin-top: 25px; }
+  .cover { text-align: center; margin-top: 150px; margin-bottom: 250px; }
+  .cover p { font-size: 14pt; margin: 5px; }
+  .cover h1 { font-size: 18pt; margin-bottom: 50px; }
+  .content { text-align: justify; }
+  .screenshot-box { border: 2px dashed #999; padding: 150px 40px; text-align: center; color: #555; margin: 20px 0; background: #f9f9f9; font-weight: bold;}
+  pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; overflow-x: auto; font-family: Consolas, monospace; font-size: 10pt; }
+  .page-break { page-break-before: always; }
+  .center { text-align: center; }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <h1>MAKALAH TUGAS BESAR<br>STATE TRANSITION DIAGRAM (STD)</h1>
+    <p><strong>Mata Kuliah:</strong> Rekayasa Perangkat Lunak II</p>
+    <p><strong>Nama Sistem:</strong> Aplikasi Mobile Banking BCA (Modul Transfer Dana)</p>
+    <br><br><br><br><br><br>
+    <p><strong>Disusun Oleh:</strong></p>
+    <p><strong>Nama:</strong> Ravi Al Habsi Ramadan</p>
+    <p><strong>NIM:</strong> 8020240178</p>
+    <p><strong>Kelas:</strong> 07PT4</p>
+    <br><br><br><br><br><br>
+    <p><strong>PROGRAM STUDI TEKNIK INFORMATIKA</strong></p>
+    <p><strong>FAKULTAS ILMU KOMPUTER</strong></p>
+    <p><strong>UNIVERSITAS DINAMIKA BANGSA JAMBI</strong></p>
+    <p><strong>2026</strong></p>
+  </div>
+  
+  <div class="page-break"></div>
+  
+  <div class="content">
+    <h2>KATA PENGANTAR</h2>
+    <p>Puji syukur senantiasa penulis panjatkan kehadirat Tuhan Yang Maha Esa, karena atas rahmat dan karunia-Nya, penulis dapat menyelesaikan makalah yang berjudul "Perancangan State Transition Diagram pada Aplikasi Mobile Banking BCA (Modul Transfer Dana)" ini tepat pada waktunya.</p>
+    <p>Makalah ini disusun untuk memenuhi tugas besar mata kuliah Rekayasa Perangkat Lunak II di Universitas Dinamika Bangsa Jambi. Penulis juga mengucapkan terima kasih kepada Bapak Daniel Sintong PS, S.Kom., M.S.I selaku dosen pengampu yang telah memberikan bimbingan dan arahan dalam penyusunan laporan ini.</p>
+    <p>Dalam penyusunan makalah ini, penulis menyadari bahwa masih banyak kekurangan baik dari segi penyusunan bahasa maupun materi pembahasan. Oleh karena itu, penulis sangat mengharapkan kritik dan saran yang membangun dari pembaca untuk penyempurnaan makalah ini di masa mendatang.</p>
+    <p>Semoga makalah ini dapat memberikan manfaat serta menambah wawasan bagi para pembaca, khususnya mahasiswa Teknik Informatika yang sedang mendalami materi rekayasa perangkat lunak dan pemodelan sistem.</p>
+    <br><br>
+    <p style="text-align: right;">Jambi, Juni 2026<br><br><br><br><strong>Ravi Al Habsi Ramadan</strong></p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>DAFTAR ISI</h2>
+    <p>KATA PENGANTAR ..................................................................................................... i</p>
+    <p>DAFTAR ISI ................................................................................................................. ii</p>
+    <p>BAB I PENDAHULUAN ................................................................................................ 1</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;1.1 Latar Belakang ............................................................................................ 1</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;1.2 Tujuan Penulisan ........................................................................................ 2</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;1.3 Profil Sistem ............................................................................................... 2</p>
+    <p>BAB II LANDASAN TEORI ........................................................................................... 3</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;2.1 State Transition Diagram (STD) ................................................................... 3</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;2.2 Elemen-elemen STD .................................................................................. 4</p>
+    <p>BAB III PEMODELAN STD BERLEVEL .......................................................................... 5</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;3.1 Dekomposisi STD Level 0 - Level 5 ............................................................. 5</p>
+    <p>BAB IV IMPLEMENTASI DAN PENJELASAN ALUR SCREENSHOT .............................. 7</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;4.1 Tangkapan Layar dan Narasi Transisi ........................................................... 7</p>
+    <p>BAB V PENUTUP ......................................................................................................... 9</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;5.1 Kesimpulan ................................................................................................. 9</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;5.2 Saran ........................................................................................................... 9</p>
+    <p>DAFTAR PUSTAKA ...................................................................................................... 10</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB I<br>PENDAHULUAN</h2>
+    <h3>1.1 Latar Belakang</h3>
+    <p>Dalam rekayasa perangkat lunak, perancangan antarmuka dan alur interaksi pengguna memegang peranan krusial untuk memastikan bahwa sistem berjalan sesuai dengan harapan. Salah satu aspek terpenting dari sebuah sistem perangkat lunak yang kompleks adalah <i>time-dependent behavior</i> atau perilaku yang bergantung pada waktu. Setiap interaksi pengguna dapat menyebabkan perubahan kondisi atau <i>State</i> dari aplikasi.</p>
+    <p>Untuk memahami perubahan kondisi ini dengan baik, teknik pemodelan State Transition Diagram (STD) digunakan. Pemodelan ini memungkinkan analisis rinci terhadap bagaimana sistem merespons input tertentu. Pada tugas ini, penulis berfokus untuk melakukan analisis dan membuat rancangan STD yang berfokus pada Aplikasi Mobile Banking BCA (Modul Transfer Dana).</p>
+    <p>Pemodelan ini sangat penting guna menanggulangi adanya <i>deadlock</i> atau kegagalan sistem pada saat pengguna melakukan transaksi atau proses yang kompleks.</p>
+
+    <h3>1.2 Tujuan Penulisan</h3>
+    <p>Tujuan dari penulisan makalah ini adalah:</p>
+    <ol>
+        <li>Mengidentifikasi state, condition, dan action yang terdapat pada Aplikasi Mobile Banking BCA (Modul Transfer Dana).</li>
+        <li>Membuat rancangan State Transition Diagram (STD) dengan teknik dekomposisi minimal hingga 5 level.</li>
+        <li>Mendokumentasikan alur visual aplikasi menggunakan tangkapan layar (screenshot) asli dari aplikasi.</li>
+    </ol>
+
+    <h3>1.3 Profil Sistem</h3>
+    <p><strong>Penjelasan Singkat Aplikasi:</strong> BCA Mobile adalah aplikasi perbankan digital dari Bank Central Asia yang memfasilitasi transaksi keuangan nasabah melalui smartphone. Salah satu fitur utamanya adalah transfer dana antar rekening maupun antar bank.</p>
+    <p><strong>Alasan Memilih Modul:</strong> Modul transfer dana merupakan proses kritis yang menuntut keamanan tinggi dan validasi state yang ketat di setiap levelnya (mulai dari input rekening hingga konfirmasi PIN). Hal ini membuat dekomposisi STD sangat relevan untuk dianalisis.</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB II<br>LANDASAN TEORI</h2>
+    <h3>2.1 State Transition Diagram (STD)</h3>
+    <p>State Transition Diagram (STD) adalah suatu model fungsional yang merepresentasikan transisi kondisi (state) dari sebuah sistem komputasi berurutan (finite state machine). Model ini membantu analis sistem dan pengembang perangkat lunak dalam memetakan perilaku dinamis sistem akibat kejadian (event) tertentu, yang biasanya dipicu oleh pengguna (user input) atau waktu (time-based).</p>
+    <p>Pada rekayasa perangkat lunak modern, STD berguna untuk merancang <i>user interface flow</i>, logika transaksi elektronik, dan kontrol alur komunikasi. Melalui dekomposisi level, kompleksitas sistem dapat dipecah menjadi modul-modul sub-state yang lebih mudah dipahami secara spesifik.</p>
+
+    <h3>2.2 Elemen-elemen STD</h3>
+    <p>Pemodelan STD yang dibangun dalam laporan ini disusun atas komponen-komponen utama berikut:</p>
+    <ul>
+        <li><strong>State (Keadaan):</strong> Digambarkan dengan simbol persegi panjang bersudut membulat (rounded rectangle). Merepresentasikan suatu kondisi diam (idle) dimana sistem sedang menunggu input atau memproses suatu kejadian.</li>
+        <li><strong>Arrow (Panah Transisi):</strong> Garis berarah yang mengindikasikan perpindahan dari satu state ke state lainnya.</li>
+        <li><strong>Condition (Kondisi):</strong> Peristiwa atau trigger yang menyebabkan transisi terjadi, seperti klik tombol, input teks, atau jeda waktu.</li>
+        <li><strong>Action (Aksi):</strong> Reaksi seketika atau respon operasional yang dikerjakan sistem saat transisi dilakukan, misalnya validasi data, memuat halaman baru, atau enkripsi password. Kondisi dan Aksi ditulis di atas panah dengan format <code>Kondisi / Aksi</code>.</li>
+    </ul>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB III<br>PEMODELAN STD BERLEVEL</h2>
+    <p>Pada bab ini, penulis menjabarkan State Transition Diagram (STD) dari Aplikasi Mobile Banking BCA (Modul Transfer Dana) yang diturunkan (didekomposisi) ke dalam 6 tingkatan (Level 0 hingga Level 5). Rancangan grafisnya dilampirkan dalam folder Draw.io tersendiri, sementara rincian logikanya dipetakan sebagai berikut:</p>
+    
+    <h3>3.1 Dekomposisi STD Level 0 - Level 5</h3>
+    <p><strong>Level 0: Konteks Global</strong><br>
+    State Awal: mBCA_Login<br>
+    Transisi: Buka m-BCA / Minta Kode Akses</p>
+    <br>
+    <p><strong>Level 1: Menu Modul Utama</strong><br>
+    State Awal: Menu_Utama &rarr; State Tujuan: m_Transfer<br>
+    Transisi: Pilih m-Transfer / Buka Modul Transfer</p>
+    <br>
+    <p><strong>Level 2: Proses & Pilihan</strong><br>
+    State Awal: m_Transfer_Aktif &rarr; State Tujuan: Form_Transfer<br>
+    Transisi: Pilih Antar Rekening / Siapkan Form</p>
+    <br>
+    <p><strong>Level 3: Pengisian / Detail</strong><br>
+    State Awal: Input_Rekening &rarr; State Tujuan: Konfirmasi_Data<br>
+    Transisi: Input Selesai & Klik Send / Validasi Nama</p>
+    <br>
+    <p><strong>Level 4: Validasi & Konfirmasi</strong><br>
+    State Awal: Alert_Konfirmasi &rarr; State Tujuan: Input_PIN<br>
+    Transisi: Klik OK / Tampilkan Keypad PIN</p>
+    <br>
+    <p><strong>Level 5: Proses Selesai (Terdalam)</strong><br>
+    State Awal: Prompt_PIN &rarr; State Tujuan: Transfer_Sukses<br>
+    Transisi: PIN Benar / Eksekusi Mutasi Saldo</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB IV<br>IMPLEMENTASI DAN PENJELASAN ALUR SCREENSHOT</h2>
+    <p>Bagian ini mendokumentasikan alur kerja aplikasi secara berurutan sesuai desain STD pada Bab III. Tangkapan layar di bawah ini adalah bukti dokumentasi aktual dari sistem.</p>
+
+    <h3>4.1 Tangkapan Layar dan Narasi Transisi</h3>
+    
+    <div class="screenshot-box">[ TEMPATKAN SCREENSHOT LEVEL 0 DI SINI ]<br>Representasi Antarmuka Level 0</div>
+    <p><strong>Deskripsi Level 0:</strong> Saat pengguna membuka aplikasi, inisialisasi awal dilakukan untuk masuk ke dalam State utama. Proses ini mengunci sesi pengguna dan menghubungkan aplikasi dengan server.</p>
+
+    <div class="screenshot-box">[ TEMPATKAN SCREENSHOT LEVEL 1 DI SINI ]<br>Representasi Antarmuka Level 1</div>
+    <p><strong>Deskripsi Level 1:</strong> Modul m_Transfer diakses oleh pengguna. Sistem merespons kondisi (klik menu) dengan memuat layanan yang relevan di layar utama.</p>
+    
+  </div>
+  <div class="page-break"></div>
+  <div class="content">
+
+    <div class="screenshot-box">[ TEMPATKAN SCREENSHOT LEVEL 2 DI SINI ]<br>Representasi Antarmuka Level 2</div>
+    <p><strong>Deskripsi Level 2:</strong> Pengguna memberikan masukan awal atau memilih item. Aksi yang dijalankan sistem mencakup perhitungan atau kalkulasi yang mempersiapkan form pada tingkat berikutnya.</p>
+
+    <div class="screenshot-box">[ TEMPATKAN SCREENSHOT LEVEL 3 DI SINI ]<br>Representasi Antarmuka Level 3</div>
+    <p><strong>Deskripsi Level 3:</strong> Tahapan ini adalah tahap pengisian rincian (State: Konfirmasi_Data). Sistem secara dinamis memvalidasi informasi yang dimasukkan.</p>
+
+  </div>
+  <div class="page-break"></div>
+  <div class="content">
+
+    <div class="screenshot-box">[ TEMPATKAN SCREENSHOT LEVEL 4 DI SINI ]<br>Representasi Antarmuka Level 4</div>
+    <p><strong>Deskripsi Level 4:</strong> Proses konfirmasi atau validasi keamanan yang ketat. Sistem meminta verifikasi dari pengguna sebelum eksekusi final dikirim ke server pusat.</p>
+
+    <div class="screenshot-box">[ TEMPATKAN SCREENSHOT LEVEL 5 DI SINI ]<br>Representasi Antarmuka Level 5</div>
+    <p><strong>Deskripsi Level 5:</strong> Jika otentikasi di level 4 berhasil, maka Action final dieksekusi. Layar menunjukkan State Transfer_Sukses sebagai penanda keberhasilan berjalannya semua level sistem secara time-dependent.</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>BAB V<br>PENUTUP</h2>
+    <h3>5.1 Kesimpulan</h3>
+    <p>Berdasarkan analisis dan pemodelan State Transition Diagram (STD) yang telah disusun pada Aplikasi Mobile Banking BCA (Modul Transfer Dana), dapat ditarik beberapa kesimpulan utama:</p>
+    <ol>
+        <li>Sistem memiliki alur kontrol berbasis waktu (time-dependent) yang sangat terstruktur, di mana transisi dari satu layar ke layar berikutnya dikontrol secara ketat oleh kondisi dan aksi.</li>
+        <li>Metode dekomposisi STD hingga 5 level terbukti efektif dalam memetakan kompleksitas sistem menjadi sub-modul yang lebih sederhana. Hal ini mempermudah identifikasi potensi kesalahan (error handling) pada setiap lapisan.</li>
+        <li>Setiap tindakan pengguna (user condition) seperti klik tombol atau pengisian form selalu diikuti dengan respon logis sistem (system action), yang menjaga integritas data sebelum transaksi diselesaikan di level akhir.</li>
+    </ol>
+
+    <h3>5.2 Saran</h3>
+    <p>Adapun saran yang dapat diberikan penulis untuk perbaikan atau pengembangan sistem di masa mendatang adalah:</p>
+    <ol>
+        <li><strong>Peningkatan Responsivitas Aksi:</strong> Beberapa aksi yang bergantung pada koneksi internet (seperti API request) sebaiknya disertai dengan indikator <i>loading state</i> untuk memberikan umpan balik (feedback) yang jelas kepada pengguna.</li>
+        <li><strong>Penanganan Eksepsi (Error Handling):</strong> Pada level kritis (seperti input PIN atau verifikasi akhir), sistem perlu menampilkan panduan resolusi yang lebih deskriptif ketika input yang diberikan tidak sesuai dengan format.</li>
+        <li><strong>Optimalisasi Flow:</strong> Transisi antara level dapat dioptimalkan dengan mengurangi redundansi form konfirmasi untuk mempercepat waktu yang dibutuhkan pengguna dalam menyelesaikan transaksi.</li>
+    </ol>
+  </div>
+
+  <div class="page-break"></div>
+
+  <div class="content">
+    <h2>DAFTAR PUSTAKA</h2>
+    <p>A.S., Rosa dan M. Shalahuddin. 2018. <i>Rekayasa Perangkat Lunak Terstruktur dan Berorientasi Objek.</i> Bandung: Informatika.</p>
+    <p>Pressman, Roger S. 2015. <i>Software Engineering: A Practitioner's Approach (8th Edition).</i> New York: McGraw-Hill Education.</p>
+    <p>Kendall, Kenneth E. dan Julie E. Kendall. 2014. <i>Systems Analysis and Design (9th Edition).</i> New Jersey: Pearson Prentice Hall.</p>
+    <p>Sintong, Daniel. 2026. <i>Materi Kuliah Rekayasa Perangkat Lunak 2: State Transition Diagram (STD).</i> Jambi: Universitas Dinamika Bangsa.</p>
+    <p>Dokumentasi Resmi <i>Aplikasi Mobile Banking BCA (Modul Transfer Dana)</i>. Diakses melalui aplikasi secara langsung untuk analisis alur transaksi level 0 hingga 5.</p>
+  </div>
+
+</body>
+</html>
